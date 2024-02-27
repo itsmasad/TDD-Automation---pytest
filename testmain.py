@@ -10,8 +10,6 @@ from selenium.webdriver.chrome.options import Options
 
 
 
-
-
 @pytest.mark.parametrize("Username , Password", [("student","Password123"),("student1","Password123"),("student2","Password123")])
 def test_register(setUp,Username,Password):
     driver = setUp
