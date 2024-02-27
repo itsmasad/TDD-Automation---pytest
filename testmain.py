@@ -9,7 +9,7 @@ from selenium.webdriver import ActionChains
 
 
 
-@pytest.mark.regeression
+@pytest.mark.register
 def test_register(setUp):
     driver = setUp
     print("test")
@@ -17,5 +17,11 @@ def test_register(setUp):
         EC.presence_of_element_located((By.XPATH, "//*[@placeholder='First Name']"))
     )
     Fname = driver.find_element(By.XPATH, "//*[@placeholder='First Name']")
-    Fname.send_keys("Asad")
+    Lname = driver.find_element(By.XPATH, "//*[@placeholder='Last Name']")
+    action = ActionChains(driver)
+    action.click(Fname).send_keys("Muhammad").perform()
+    action.click(Lname).send_keys("Asad").perform()
+    checkbox = driver.find_element(By.ID, "checkbox1")
+    action.click(checkbox).perform()
     time.sleep(3)
+
